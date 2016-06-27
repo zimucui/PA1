@@ -10,7 +10,7 @@
 	<li>grade you received: <input type="text" class="js-grade"></li>
 	<li>email: <input type="text" class="js-email"></li>
 	<li>meeting days:</li>
-	<input type="checkbox" class="js-mon">Monday<br>
+	<input type="checkbox" class="js-mon" >Monday<br>
 	<input type="checkbox" class="js-tue">Tuesday<br>
 	<input type="checkbox" class="js-wed">Wednesday<br>
 	<input type="checkbox" class="js-thu">Thursday<br>
@@ -23,7 +23,7 @@
 	<hr>
 	<ul>
 		{{#each r in ratings}}
-			<li>{{r.offeredBy}} offers {{r.classname}}, and the days are shown above. I took this course in {{r.time}}, and the final grade was {{r.grade}}. Here is my opinion about him: {{r.evaluation}}. His/her email address is {{r.email}}</li>
+			 {{> comment  abc=r}}
 		{{/each}}
 	</ul>
 
@@ -31,6 +31,20 @@
 	<h2>You must log in to make comments!</h2>
  {{/if}}
 
+</template>
+
+
+
+<template name="comment">
+	<li>{{abc.offeredBy}} offers {{abc.classname}}, and the days are {{abc.days}}. I took this course in {{abc.time}}, and the final grade was {{abc.grade}}. Here is my opinion about him: {{abc.evaluation}}. His/her email address is {{abc.email}} <a href="/showprofessor/{{abc._id}}">a professor</a>
+	<span class="js-delete-comment glyphicon glyphicon-remove" aria-hidden="true">
+       </span>
+	  </li>
+</template>
+
+
+<template name="showprofessor">
+	{{offeredBy}} is offereing {{classname}} to all of us!
 </template>
 
 	
