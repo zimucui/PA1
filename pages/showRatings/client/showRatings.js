@@ -1,3 +1,5 @@
+
+
 Template.showRatings.helpers({
 	ratings:function(){
 		//const name = $(".js-name").val();
@@ -46,17 +48,19 @@ Template.showRatings.events({
 		const evaluation =$(".js-evaluation").val();
 		
 		Meteor.call('createComment',name,classname,email,time,arr,grade,evaluation);
+
 		$(".js-evaluation").val("");
 		$(".js-name").val("");
 		$(".js-offered").val("");
 		$(".js-email").val("");
 		$(".js-grade").val("");
-		$(".js-mon").val("");
-		$(".js-tue").val("");
-		$(".js-wed").val("");
-		$(".js-thu").val("");
-		$(".js-fri").val("");
+		document.getElementById("1").checked = false;
+		document.getElementById("2").checked = false;
+		document.getElementById("3").checked = false;
+		document.getElementById("4").checked = false;
+		document.getElementById("5").checked = false;
 		$(".js-time").val("");
+
 	}
 
 
@@ -71,23 +75,6 @@ Template.comment.events({
 		Meteor.call('removeComment',this.abc._id);//"this.abc._id 来自html!!!"
 	}
 })
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
